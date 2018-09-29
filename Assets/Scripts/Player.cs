@@ -9,6 +9,8 @@ public class Player : MonoBehaviour, ILevelEntity
     public int normalSpeed;
     public int inJumpSpeed;
     public int currentSpeed;
+    public int TotalLives;
+    private int _lives;
     private Rigidbody m_rigidbody;
     public bool isJumping;
     private Vector2 currentDir;
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour, ILevelEntity
         isJumping = false;
         currentSpeed = normalSpeed;
         _spawnPosition = transform.position;
+        _lives = TotalLives;
     }
 
     void FixedUpdate()
@@ -99,7 +102,6 @@ public class Player : MonoBehaviour, ILevelEntity
             currentSpeed = normalSpeed;
             isJumping = false;
         }
-        Debug.Log("EnterCollision");
     }
     
     public void Reset()
@@ -115,6 +117,20 @@ public class Player : MonoBehaviour, ILevelEntity
             currentSpeed = inJumpSpeed;
             isJumping = true;
         }
-        Debug.Log("ExitCollision");
+    }
+
+    public int GetHp()
+    {
+        return _lives;
+    }
+
+    public void HitPlayer()
+    {
+        _lives--;
+    }
+
+    public bool IsDead()
+    {
+        return _lives <= 0;
     }
 }

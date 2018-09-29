@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
     public float LevelTimer;
     private float _timer;
     private IEnumerable<ILevelEntity> _levelEntities;
+    private Player _player;
+
+    private bool _doorReached;
 
 	// Use this for initialization
 	void Start () {
         _timer = LevelTimer;
         _levelEntities = FindObjectsOfType<GameObject>().Select(go => go.GetComponent<ILevelEntity>()).Where(a => a != null);
-        
+        _player = FindObjectOfType<Player>();   
 	}
 	
 	// Update is called once per frame
@@ -24,9 +27,13 @@ public class GameManager : MonoBehaviour
         }
 
         _timer -= Time.deltaTime;
-        if (_timer < 0)
+        if (_timer < 0 || _player.IsDead())
         {
             Lose();
+        }
+        if (_doorReached)
+        {
+            Win();
         }
 	}
 
@@ -37,10 +44,11 @@ public class GameManager : MonoBehaviour
             go.Reset();
         }
         _timer = LevelTimer;
+        _doorReached = false;
     }
     
     private void Win(){
-    
+        Reset();
     }
 
     private void Lose()
@@ -51,5 +59,10 @@ public class GameManager : MonoBehaviour
     public float Timer()
     {
         return _timer;
+    }
+
+    public void EnterExitDoor()
+    {
+        _doorReached = true;
     }
 }
