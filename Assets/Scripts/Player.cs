@@ -26,64 +26,23 @@ public class Player : MonoBehaviour, ILevelEntity
         collisionCounter = 0;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (!isJumping)
-            {
-                currentDir = Vector2.left;
-                transform.Translate(currentDir * currentSpeed * Time.deltaTime);
-            }
-            else if (isJumping)
-            {
-                if (currentDir != Vector2.left)
-                {
-                    if (currentDir == Vector2.right)
-                    {
-                        currentDir = Vector2.left;
-                        m_rigidbody.AddForce(currentDir * 2 * currentSpeed, ForceMode.Impulse);
-                    }
-                    else
-                    {
-                        currentDir = Vector2.left;
-                        m_rigidbody.AddForce(currentDir * currentSpeed, ForceMode.Impulse);
-                    }
-                }
-            }
-
+            currentDir = Vector2.left;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (!isJumping)
-            {
-                currentDir = Vector2.right;
-                transform.Translate(currentDir * currentSpeed * Time.deltaTime);
-            }
-            else if (isJumping)
-            {
-                if (currentDir != Vector2.right)
-                {
-                    if(currentDir == Vector2.left)
-                    {
-                        currentDir = Vector2.right;
-                        m_rigidbody.AddForce(currentDir * 2 * currentSpeed, ForceMode.Impulse);
-                    }
-                    else
-                    {
-                        currentDir = Vector2.right;
-                        m_rigidbody.AddForce(currentDir * currentSpeed, ForceMode.Impulse);
-                    }
-                }
-            }
-
+            
+            currentDir = Vector2.right;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
             currentDir = Vector2.up;
         }
 
-        if (!isJumping && !Input.anyKeyDown)
+        if (!isJumping && !Input.anyKey)
         {
             currentDir = Vector2.zero;
         }
@@ -95,6 +54,9 @@ public class Player : MonoBehaviour, ILevelEntity
             isJumping = true;
             currentSpeed = inJumpSpeed;
         }
+        var pos = new Vector2(m_rigidbody.position.x, m_rigidbody.position.y);
+        m_rigidbody.position = pos + currentDir * currentSpeed * Time.fixedDeltaTime;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
