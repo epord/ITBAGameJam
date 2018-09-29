@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float currentSpeed = 5;
     public GameObject mesh;
     public int TotalLives;
-    private int _lives;
+    public int _lives;
     private Rigidbody m_rigidbody;
     private Vector2 currentDir;
 
