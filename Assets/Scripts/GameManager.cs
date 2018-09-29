@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         Reset();
     }
 
-    private void Lose()
+    public void Lose()
     {
         Reset();
     }

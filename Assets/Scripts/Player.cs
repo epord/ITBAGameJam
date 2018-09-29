@@ -17,6 +17,12 @@ public class Player : MonoBehaviour, ILevelEntity
     private Vector2 currentDir;
     private int collisionCounter;
 
+    //Invulnerability
+    public bool isInvulnerable = false;
+    public float invulnerabilityTime;
+    public float invulnerabilityStart;
+    public bool startBlinking = false;
+
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -62,6 +68,20 @@ public class Player : MonoBehaviour, ILevelEntity
         
     }
 
+    private void Update()
+    {
+        if (Time.time - invulnerabilityStart >= invulnerabilityTime && isInvulnerable)
+        {
+            isInvulnerable = false;
+            startBlinking = true;
+        }
+
+        if (startBlinking == true)
+        {
+            SpriteBlinkingEffect();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "MapElement" && isJumping /*&& collision.contacts[0].point.y < transform.position.y*/)
@@ -104,5 +124,16 @@ public class Player : MonoBehaviour, ILevelEntity
     public bool IsDead()
     {
         return _lives <= 0;
+    }
+
+    public void SetInvulnerable()
+    {
+        isInvulnerable = true;
+        invulnerabilityStart = Time.time;
+    }
+
+    private void SpriteBlinkingEffect()
+    {
+        //Debug.Log(Time.time);
     }
 }
