@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     private Rigidbody m_rigidbody;
     public bool isJumping;
     private Vector2 currentDir;
+    private int collisionCounter;
 
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
         isJumping = false;
         currentSpeed = normalSpeed;
+        collisionCounter = 0;
     }
 
     void FixedUpdate()
@@ -88,7 +90,7 @@ public class Player : MonoBehaviour
             isJumping = true;
             currentSpeed = inJumpSpeed;
         }
-}
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -96,6 +98,7 @@ public class Player : MonoBehaviour
         {
             currentSpeed = normalSpeed;
             isJumping = false;
+            collisionCounter++;
         }
     }
 
@@ -103,8 +106,21 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "MapElement")
         {
-            currentSpeed = inJumpSpeed;
-            isJumping = true;
+            collisionCounter--;
+            if(collisionCounter == 0)
+            {
+                currentSpeed = inJumpSpeed;
+                isJumping = true;
+            }
         }
     }
+
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "MapElement")
+    //    {
+    //        currentSpeed = normalSpeed;
+    //        isJumping = false;
+    //    }
+    //}
 }
