@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour, ILevelEntity
 {
     private Vector3 _spawnPosition;
-    public float jumpForce;
-    public int normalSpeed;
-    public int inJumpSpeed;
-    public int currentSpeed;
+    public float jumpForce = 15.0f;
+    public int normalSpeed = 5;
+    public int inJumpSpeed = 4;
+    public int currentSpeed = 5;
+    public GameObject mesh;
     public int TotalLives;
     private int _lives;
     private Rigidbody m_rigidbody;
@@ -24,17 +25,19 @@ public class Player : MonoBehaviour, ILevelEntity
         _spawnPosition = transform.position;
         _lives = TotalLives;
         collisionCounter = 0;
+        mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
     }
 
     void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            
+            mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             currentDir = Vector2.right;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
@@ -61,7 +64,7 @@ public class Player : MonoBehaviour, ILevelEntity
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "MapElement" && isJumping && collision.contacts[0].point.y < transform.position.y)
+        if (collision.gameObject.tag == "MapElement" && isJumping /*&& collision.contacts[0].point.y < transform.position.y*/)
         {
             currentSpeed = normalSpeed;
             isJumping = false;
