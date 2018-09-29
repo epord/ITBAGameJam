@@ -33,12 +33,12 @@ public class Gun : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            this.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
+            this.transform.eulerAngles = new Vector3(0.0f, 0.0f, -90.0f);
             raycastDirection = new Vector3(0.0f, 1.0f, 0.0f);
         }
         else
         {
-            this.transform.eulerAngles = this.isMovingRight ? new Vector3(0.0f, 0.0f, 0.0f) : new Vector3(0.0f, 0.0f, 180.0f);
+            this.transform.eulerAngles = this.isMovingRight ? new Vector3(0.0f, 0.0f, 180.0f) : new Vector3(0.0f, 0.0f, 0.0f);
             this.raycastDirection = this.isMovingRight ? new Vector3(1.0f, 0.0f, 0.0f) : new Vector3(-1.0f, 0.0f, 0.0f);
         }
     }

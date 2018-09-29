@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 54654155596502120}
   - component: {fileID: 65092590496157192}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,4 +181,5 @@ MonoBehaviour:
   inJumpSpeed: 4
   currentSpeed: 5
   mesh: {fileID: 1031106828392018}
+  TotalLives: 0
   isJumping: 0

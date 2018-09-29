@@ -25,6 +25,7 @@ public class Player : MonoBehaviour, ILevelEntity
         _spawnPosition = transform.position;
         _lives = TotalLives;
         collisionCounter = 0;
+        mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
     }
 
     void Update()
