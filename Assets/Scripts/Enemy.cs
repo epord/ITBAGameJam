@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int respawnTime;
     public int speed;
     public bool goRight;
+    public GameObject mesh;
     private Vector2 direction;
     public GameObject limitWall;
     private float startTime;
@@ -16,7 +17,7 @@ public class Enemy : MonoBehaviour
 	void Start ()
     {
         origin = this.transform.position;
-        gameObject.GetComponent<Renderer>().enabled = false;
+        mesh.GetComponent<Renderer>().enabled = false;
         if (goRight)
         {
             direction = Vector2.right;
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
     {
         if(Time.time - startTime >= spawningTime)
         {
-            gameObject.GetComponent<Renderer>().enabled = true;
+            mesh.GetComponent<Renderer>().enabled = true;
 
             if (goRight)
             {
@@ -42,7 +43,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    gameObject.GetComponent<Renderer>().enabled = false;
+                    mesh.GetComponent<Renderer>().enabled = false;
                     startTime = Time.time;
                     spawningTime = respawnTime;
                     transform.position = origin;
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    gameObject.GetComponent<Renderer>().enabled = false;
+                    mesh.GetComponent<Renderer>().enabled = false;
                     startTime = Time.time;
                     spawningTime = respawnTime;
                     transform.position = origin;
