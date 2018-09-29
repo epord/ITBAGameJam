@@ -51,6 +51,10 @@ public class Player : MonoBehaviour, ILevelEntity
         {
             currentDir = Vector2.up;
         }
+        else
+        {
+            currentDir = Vector2.zero;
+        }
     }
 
     void FixedUpdate()
