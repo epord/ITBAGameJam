@@ -58,6 +58,7 @@ public class Gun : MonoBehaviour {
 
             if (hit.transform.gameObject.tag == "ShootingTarget")
             {
+                //Destroy(hit.transform.gameObject);
                 Debug.Log("Target!!");
             }
             else
