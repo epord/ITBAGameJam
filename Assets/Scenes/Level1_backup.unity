@@ -611,7 +611,7 @@ Prefab:
     - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
         type: 2}
       propertyPath: JumpDistance
-      value: 0.05
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
         type: 2}
@@ -723,6 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8ce98f6f440f147a0bbed31a535f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyedTarget: {fileID: 0}
+  remainingTarget: {fileID: 0}
 --- !u!1 &765897822
 GameObject:
   m_ObjectHideFlags: 0
