@@ -47,5 +47,9 @@ public class GameManager : MonoBehaviour
     {
         Reset();
     }
-
+    
+    public float Timer()
+    {
+        return _timer;
+    }
 }
