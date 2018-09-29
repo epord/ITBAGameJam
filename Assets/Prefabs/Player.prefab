@@ -183,3 +183,7 @@ MonoBehaviour:
   mesh: {fileID: 1225445965140006}
   TotalLives: 3
   isJumping: 0
+  isInvulnerable: 0
+  invulnerabilityTime: 10
+  invulnerabilityStart: 0
+  startBlinking: 0
