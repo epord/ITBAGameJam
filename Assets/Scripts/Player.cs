@@ -94,16 +94,27 @@ public class Player : MonoBehaviour, ILevelEntity
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "MapElement" && isJumping)
+        if (collision.gameObject.tag == "MapElement" && isJumping && collision.contacts[0].point.y < transform.position.y)
         {
             currentSpeed = normalSpeed;
             isJumping = false;
         }
+        Debug.Log("EnterCollision");
     }
-
+    
     public void Reset()
     {
         transform.position = _spawnPosition;
         m_rigidbody.velocity = new Vector3();
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "MapElement")
+        {
+            currentSpeed = inJumpSpeed;
+            isJumping = true;
+        }
+        Debug.Log("ExitCollision");
     }
 }
