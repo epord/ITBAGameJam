@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 100
   gunMesh: {fileID: 1100996745114402}
+  shootingColor: {r: 0.10318165, g: 0.8301887, b: 0.08223567, a: 0}
 --- !u!120 &120290188377690042
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -144,7 +145,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 3c3bb6958541f420590de6401af7a7fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
