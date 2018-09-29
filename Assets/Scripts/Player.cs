@@ -103,7 +103,7 @@ public class Player : MonoBehaviour, ILevelEntity
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "MapElement" && isJumping && collision.contacts[0].point.y < transform.position.y)
+        if (collision.gameObject.tag == "MapElement" && isJumping /*&& collision.contacts[0].point.y < transform.position.y*/)
         {
             currentSpeed = normalSpeed;
             isJumping = false;
