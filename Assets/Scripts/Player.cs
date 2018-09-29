@@ -17,6 +17,12 @@ public class Player : MonoBehaviour, ILevelEntity
     private Rigidbody m_rigidbody;
     private Vector2 currentDir;
 
+    //Invulnerability
+    public bool isInvulnerable = false;
+    public float invulnerabilityTime;
+    public float invulnerabilityStart;
+    public bool startBlinking = false;
+
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -28,6 +34,16 @@ public class Player : MonoBehaviour, ILevelEntity
 
     void Update()
     {
+        if (Time.time - invulnerabilityStart >= invulnerabilityTime && isInvulnerable)
+        {
+            isInvulnerable = false;
+            startBlinking = true;
+        }
+
+        if (startBlinking == true)
+        {
+            SpriteBlinkingEffect();
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (Physics.Raycast(transform.position, Vector3.down, JumpDistance))
@@ -37,12 +53,12 @@ public class Player : MonoBehaviour, ILevelEntity
                 //currentSpeed = inJumpSpeed * 2f;
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && !Physics.Raycast(transform.position, Vector3.right, JumpDistance))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             currentDir = Vector2.right;
@@ -62,8 +78,6 @@ public class Player : MonoBehaviour, ILevelEntity
         var pos = new Vector2(m_rigidbody.position.x, m_rigidbody.position.y);
         m_rigidbody.position = pos + currentDir * currentSpeed * Time.fixedDeltaTime;
     }
-
-    
     
     
     public void Reset()
@@ -85,5 +99,16 @@ public class Player : MonoBehaviour, ILevelEntity
     public bool IsDead()
     {
         return _lives <= 0;
+    }
+
+    public void SetInvulnerable()
+    {
+        isInvulnerable = true;
+        invulnerabilityStart = Time.time;
+    }
+
+    private void SpriteBlinkingEffect()
+    {
+        //Debug.Log(Time.time);
     }
 }
