@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 27580f5e470644abbaa3d81e62bd6e88
+guid: 0a93b5aca10fb4dfe8183742b2a9fd00
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -12,8 +12,13 @@ ModelImporter:
     2100008: hair
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube_000
-    7400000: Default Take
+    4300000: Cube.000
+    7400000: Cube.000|Action
+    7400002: Cube.000|CubeAction
+    7400004: Cube.000|KeyAction
+    7400006: Cube.000|KeyAction.001
+    7400008: Cube.000|walk
+    7400010: Cube.000|walk.001
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -66,7 +71,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
