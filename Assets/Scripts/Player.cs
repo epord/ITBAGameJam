@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ILevelEntity
 {
+    private Vector3 _spawnPosition;
     public float jumpForce;
     public int normalSpeed;
     public int inJumpSpeed;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
         isJumping = false;
         currentSpeed = normalSpeed;
+        _spawnPosition = transform.position;
     }
 
     void FixedUpdate()
@@ -48,5 +50,11 @@ public class Player : MonoBehaviour
             currentSpeed = normalSpeed;
             isJumping = false;
         }
+    }
+
+    public void Reset()
+    {
+        transform.position = _spawnPosition;
+        m_rigidbody.velocity = new Vector3();
     }
 }
