@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float jumpForce;
-    public int normalSpeed;
-    public int inJumpSpeed;
-    public int currentSpeed;
+    public float jumpForce = 15.0f;
+    public int normalSpeed = 5;
+    public int inJumpSpeed = 4;
+    public int currentSpeed = 5;
+    public GameObject mesh;
     private Rigidbody m_rigidbody;
     public bool isJumping;
     private Vector2 currentDir;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             if (!isJumping)
             {
                 currentDir = Vector2.left;
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
+            mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             if (!isJumping)
             {
                 currentDir = Vector2.right;
