@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ILevelEntity
 {
+    private Vector3 _spawnPosition;
     public float jumpForce = 15.0f;
     public int normalSpeed = 5;
     public int inJumpSpeed = 4;
     public int currentSpeed = 5;
     public GameObject mesh;
+    public int TotalLives;
+    private int _lives;
     private Rigidbody m_rigidbody;
     public bool isJumping;
     private Vector2 currentDir;
@@ -19,10 +22,12 @@ public class Player : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
         isJumping = false;
         currentSpeed = normalSpeed;
+        _spawnPosition = transform.position;
+        _lives = TotalLives;
         collisionCounter = 0;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -104,6 +109,12 @@ public class Player : MonoBehaviour
             collisionCounter++;
         }
     }
+    
+    public void Reset()
+    {
+        transform.position = _spawnPosition;
+        m_rigidbody.velocity = new Vector3();
+    }
 
     private void OnCollisionExit(Collision collision)
     {
@@ -117,13 +128,19 @@ public class Player : MonoBehaviour
             }
         }
     }
+    
+    public int GetHp()
+    {
+        return _lives;
+    }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "MapElement")
-    //    {
-    //        currentSpeed = normalSpeed;
-    //        isJumping = false;
-    //    }
-    //}
+    public void HitPlayer()
+    {
+        _lives--;
+    }
+
+    public bool IsDead()
+    {
+        return _lives <= 0;
+    }
 }
