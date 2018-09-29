@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour {
 
     public float rotateSpeed = 100.0f;
     public GameObject gunMesh;
+    public Color shootingColor;
     private LineRenderer shootingLine;
     private bool isMovingRight = true;
     private Vector3 raycastDirection;
@@ -15,7 +16,8 @@ public class Gun : MonoBehaviour {
         shootingLine = this.GetComponent<LineRenderer>();
         Vector3[] initLaserPositions = new Vector3[2] { Vector3.zero, Vector3.zero };
         shootingLine.SetPositions(initLaserPositions);
-        shootingLine.SetWidth(0.1f, 0.1f);
+        shootingLine.SetWidth(0.05f, 0.05f);
+        shootingLine.SetColors(shootingColor, shootingColor);
 
         raycastDirection = new Vector3(0.0f, 0.0f, 0.0f);
 	}
@@ -39,6 +41,7 @@ public class Gun : MonoBehaviour {
         else
         {
             this.transform.eulerAngles = this.isMovingRight ? new Vector3(0.0f, 0.0f, 180.0f) : new Vector3(0.0f, 0.0f, 0.0f);
+            gunMesh.transform.eulerAngles = this.isMovingRight ? new Vector3(-90.0f, 0.0f, 180.0f) : new Vector3(-90.0f, 0.0f, 0.0f);
             this.raycastDirection = this.isMovingRight ? new Vector3(1.0f, 0.0f, 0.0f) : new Vector3(-1.0f, 0.0f, 0.0f);
         }
     }
@@ -55,6 +58,7 @@ public class Gun : MonoBehaviour {
 
             if (hit.transform.gameObject.tag == "ShootingTarget")
             {
+                //Destroy(hit.transform.gameObject);
                 Debug.Log("Target!!");
             }
             else
