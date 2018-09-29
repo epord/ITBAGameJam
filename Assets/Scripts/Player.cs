@@ -44,12 +44,14 @@ public class Player : MonoBehaviour, ILevelEntity
         {
             SpriteBlinkingEffect();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(transform.position, Vector3.down, JumpDistance))
-        {
+        var modpos = transform.position;
+        modpos.y += JumpDistance / 2;
+        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(modpos, Vector3.down, JumpDistance))
+        {  
            Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
            m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);  
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
+        if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
