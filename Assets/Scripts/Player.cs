@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, ILevelEntity
     private Rigidbody m_rigidbody;
     public bool isJumping;
     private Vector2 currentDir;
+    private int collisionCounter;
 
     private void Start()
     {
@@ -22,9 +23,10 @@ public class Player : MonoBehaviour, ILevelEntity
         currentSpeed = normalSpeed;
         _spawnPosition = transform.position;
         _lives = TotalLives;
+        collisionCounter = 0;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour, ILevelEntity
             isJumping = true;
             currentSpeed = inJumpSpeed;
         }
-}
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -101,6 +103,7 @@ public class Player : MonoBehaviour, ILevelEntity
         {
             currentSpeed = normalSpeed;
             isJumping = false;
+            collisionCounter++;
         }
     }
     
@@ -114,11 +117,15 @@ public class Player : MonoBehaviour, ILevelEntity
     {
         if (collision.gameObject.tag == "MapElement")
         {
-            currentSpeed = inJumpSpeed;
-            isJumping = true;
+            collisionCounter--;
+            if(collisionCounter == 0)
+            {
+                currentSpeed = inJumpSpeed;
+                isJumping = true;
+            }
         }
     }
-
+    
     public int GetHp()
     {
         return _lives;
