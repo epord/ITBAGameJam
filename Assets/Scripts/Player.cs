@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour, ILevelEntity
 {
     private Vector3 _spawnPosition;
-    public float jumpForce;
-    public int normalSpeed;
-    public int inJumpSpeed;
-    public int currentSpeed;
+    public float jumpForce = 15.0f;
+    public int normalSpeed = 5;
+    public int inJumpSpeed = 4;
+    public int currentSpeed = 5;
+    public GameObject mesh;
     public int TotalLives;
     private int _lives;
     private Rigidbody m_rigidbody;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour, ILevelEntity
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             if (!isJumping)
             {
                 currentDir = Vector2.left;
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour, ILevelEntity
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
+            mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             if (!isJumping)
             {
                 currentDir = Vector2.right;
