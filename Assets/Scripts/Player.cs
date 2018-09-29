@@ -37,12 +37,12 @@ public class Player : MonoBehaviour, ILevelEntity
                 //currentSpeed = inJumpSpeed * 2f;
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && !Physics.Raycast(transform.position, Vector3.right, JumpDistance))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             currentDir = Vector2.right;
