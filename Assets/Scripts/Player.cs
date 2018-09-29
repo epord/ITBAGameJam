@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, ILevelEntity
 {
     public float JumpDistance = 0.1f;
+    
     private Vector3 _spawnPosition;
     public float jumpForce = 15.0f;
     public float normalSpeed = 5;
@@ -27,7 +28,16 @@ public class Player : MonoBehaviour, ILevelEntity
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, JumpDistance))
+            {
+                Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
+                m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);
+                //currentSpeed = inJumpSpeed * 2f;
+            }
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
@@ -46,14 +56,7 @@ public class Player : MonoBehaviour, ILevelEntity
             currentDir = Vector2.zero;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Physics.Raycast(transform.position, Vector3.down, JumpDistance)) {
-                Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
-                m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);
-                currentSpeed = inJumpSpeed * 1.5f;
-            }
-        }
+        
     }
 
     void FixedUpdate()
@@ -61,6 +64,8 @@ public class Player : MonoBehaviour, ILevelEntity
         var pos = new Vector2(m_rigidbody.position.x, m_rigidbody.position.y);
         m_rigidbody.position = pos + currentDir * currentSpeed * Time.fixedDeltaTime;
     }
+
+    
     
     
     public void Reset()
