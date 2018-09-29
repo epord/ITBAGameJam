@@ -39,6 +39,7 @@ public class Gun : MonoBehaviour {
         else
         {
             this.transform.eulerAngles = this.isMovingRight ? new Vector3(0.0f, 0.0f, 180.0f) : new Vector3(0.0f, 0.0f, 0.0f);
+            gunMesh.transform.eulerAngles = this.isMovingRight ? new Vector3(-90.0f, 0.0f, 180.0f) : new Vector3(-90.0f, 0.0f, 0.0f);
             this.raycastDirection = this.isMovingRight ? new Vector3(1.0f, 0.0f, 0.0f) : new Vector3(-1.0f, 0.0f, 0.0f);
         }
     }
