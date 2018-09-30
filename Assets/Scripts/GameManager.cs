@@ -58,15 +58,19 @@ public class GameManager : MonoBehaviour
     private void Win()
     {
         soundsManager.PlayWin();
-        inGamePauseManager.win = true;
-        inGamePauseManager.Pause();
+        inGamePauseManager.PauseWin();
     }
 
     public void Lose()
     {
         soundsManager.PlayTimeOut();
-        inGamePauseManager.win = false;
-        inGamePauseManager.Pause();
+        inGamePauseManager.PauseLoss();
+    }
+
+    private void PauseLose()
+    {
+        // Just wait :)
+        Reset();
     }
     
     public float Timer()

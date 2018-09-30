@@ -16,14 +16,21 @@ public class SoundsManager : MonoBehaviour
     public AudioClip hit;
     public AudioClip timeOut;
 
+    private void Start()
+    {
+        
+    }
+
 
     public void PlayLevel()
     {
+        _audioSource.volume = 1;
         _audioSource.PlayOneShot(level);
     }
 
     public void PlayLevelLong()
     {
+        _audioSource.volume = 1;
         _audioSource.loop = true;
         _audioSource.clip = levelLong;
         _audioSource.Play();
@@ -31,31 +38,37 @@ public class SoundsManager : MonoBehaviour
 
     public void PlayHit()
     {
+        _audioSource.volume = 1;
         _audioSource.PlayOneShot(hit);
     }
 
     public void PlayTimeOut()
     {
+        _audioSource.volume = 0.25f;
         _audioSource.PlayOneShot(timeOut);
     }
 
     public void PlayJump()
     {
+        _audioSource.volume = 0.6f;
         _audioSource.PlayOneShot(jump);
     }
 
     public void PlayShoot()
     {
+        _audioSource.volume = 1;
         _audioSource.PlayOneShot(shoot);
     }
 
     public void PlayWin()
     {
+        _audioSource.volume = 0.1f;
         _audioSource.PlayOneShot(win);
     }
 
     public void PlayLoss()
     {
+        _audioSource.volume = 1;
         _audioSource.PlayOneShot(loss);
     }
 }

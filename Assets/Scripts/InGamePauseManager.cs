@@ -3,7 +3,6 @@
 public class InGamePauseManager : MonoBehaviour
 {
     public bool isGamePaused = false;
-    public bool win;
     private GameManager gameManager;
 
     private void Start()
@@ -15,24 +14,36 @@ public class InGamePauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (isGamePaused && !win)
+            if (!isGamePaused)
             { 
-                Time.timeScale = 1;
-                isGamePaused = false;
-                gameManager.Reset();
+                Time.timeScale = 0;
+                isGamePaused = true;
             }
-            else if (isGamePaused && win)
+            else if (isGamePaused)
             {
                 Time.timeScale = 1;
                 isGamePaused = false;
-                Application.LoadLevel(gameManager.NextScene);
             }
         }
     }
 
-    public void Pause()
+    public void PauseWin()
     {
-        Time.timeScale = 0;
-        isGamePaused = true;
+        Invoke("PauseNext", 1f);
+    }
+
+    public void PauseLoss()
+    {
+        Invoke("PauseReset", 0.2f);
+    }
+
+    private void PauseNext()
+    {
+        Application.LoadLevel(gameManager.NextScene);
+    }
+
+    private void PauseReset()
+    {
+        gameManager.Reset();
     }
 }
