@@ -29,13 +29,14 @@ public class ExitDoor : MonoBehaviour
     private void PrintRemainingTargetsNumber()
     {
         int unDestroyedTargets = GameObject.FindGameObjectsWithTag("ShootingTarget").Length;
-        for (int i = 1; i <= unDestroyedTargets; i++)
-        {
-            lights[i].GetComponent<Renderer>().material = remainingTarget;
-        }
-        for (int i = 3; i > unDestroyedTargets; i--)
-        {
-            lights[i].GetComponent<Renderer>().material = destroyedTarget;
-        }
+        Debug.Log(unDestroyedTargets);
+        //for (int i = 1; i <= unDestroyedTargets; i++)
+        //{
+        //    lights[i].GetComponent<Renderer>().material = remainingTarget;
+        //}
+        //for (int i = 3; i > unDestroyedTargets; i--)
+        //{
+        //    lights[i].GetComponent<Renderer>().material = destroyedTarget;
+        //}
     }
 }
