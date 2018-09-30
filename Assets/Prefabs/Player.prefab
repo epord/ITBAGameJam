@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33005283329168524}
   - component: {fileID: 23749816423877336}
   - component: {fileID: 95236836553645360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114093401859858958}
   - component: {fileID: 54654155596502120}
   - component: {fileID: 65092590496157192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239566461994096}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.9575233, y: 8.118927, z: 0}
+  m_LocalPosition: {x: 1.79, y: 7.64, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4349333038974590}
@@ -176,14 +176,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5410e60a1137b524b9c24d255d1a3413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpDistance: 0.1
-  jumpForce: 13
+  JumpDistance: 0.2
+  jumpForce: 8
   normalSpeed: 5
   inJumpSpeed: 2
   currentSpeed: 5
   mesh: {fileID: 1225445965140006}
   TotalLives: 3
+  _lives: 0
+  isJumping: 0
+  additionalJumpForce: 1
   isInvulnerable: 0
-  invulnerabilityTime: 10
+  invulnerabilityTime: 2
   invulnerabilityStart: 0
   knockBackForce: 7
