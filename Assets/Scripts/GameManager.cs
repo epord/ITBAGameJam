@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
 
         _timer -= Time.deltaTime;
-        if (_timer < 0 || _player.IsDead())
+        if (_timer <= 0.001 || _player.IsDead())
         {
             Lose();
         }
