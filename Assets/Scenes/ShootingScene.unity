@@ -626,6 +626,11 @@ Prefab:
       propertyPath: limitWall
       value: 
       objectReference: {fileID: 16006418}
+    - target: {fileID: 114823123006456264, guid: e543943889a464e0493d359982b1c836,
+        type: 2}
+      propertyPath: goRight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e543943889a464e0493d359982b1c836, type: 2}
   m_IsPrefabAsset: 0
