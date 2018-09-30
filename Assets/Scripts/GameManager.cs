@@ -63,7 +63,14 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
-        soundsManager.PlayTimeOut();
+        if (_timer <= 0)
+        {
+            soundsManager.PlayTimeOut();
+        }
+        else
+        {
+            soundsManager.PlayLoss();
+        }
         inGamePauseManager.PauseLoss();
     }
 
