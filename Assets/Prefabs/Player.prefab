@@ -182,7 +182,7 @@ MonoBehaviour:
   inJumpSpeed: 2
   currentSpeed: 5
   mesh: {fileID: 1225445965140006}
-  TotalLives: 3
+  TotalLives: 100
   _lives: 0
   isJumping: 0
   additionalJumpForce: 2
