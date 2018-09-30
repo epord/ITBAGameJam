@@ -74,7 +74,15 @@ public class Enemy : MonoBehaviour
             if (player.isInvulnerable == false)
             {
                 player.HitPlayer();
-                player.SetInvulnerable();
+                Vector3 temp = transform.position - other.gameObject.transform.position;
+                if(temp.x > 0)
+                {
+                    player.SetInvulnerable(Vector3.left);
+                }
+                else
+                {
+                    player.SetInvulnerable(Vector3.right);
+                }
             }
         }
     }
