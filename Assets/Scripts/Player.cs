@@ -106,7 +106,7 @@ public class Player : MonoBehaviour, ILevelEntity
 
     private void KnockBack(Vector3 direction)
     {
-        m_rigidbody.AddForce(direction * knockBackForce, ForceMode.Impulse);
+        m_rigidbody.velocity = direction * knockBackForce;
     }    
 
     private static IEnumerator SpriteBlinkingEffect(MeshRenderer renderer, float interval, float duration)
