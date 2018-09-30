@@ -608,7 +608,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.2
+  orthographic size: 11.690167
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1699,6 +1699,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c31bc98b9b57ab344823987a3d659575, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1061608128
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11.849297
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.464871
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.3684896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489933086612416, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c345810a2a72ce4fb94371d9ec659aa, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1125759449
 Prefab:
