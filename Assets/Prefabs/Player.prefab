@@ -176,14 +176,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5410e60a1137b524b9c24d255d1a3413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpDistance: 0.1
   jumpForce: 13
   normalSpeed: 5
   inJumpSpeed: 2
   currentSpeed: 5
   mesh: {fileID: 1225445965140006}
   TotalLives: 3
-  isJumping: 0
   isInvulnerable: 0
   invulnerabilityTime: 10
   invulnerabilityStart: 0
-  startBlinking: 0
+  knockBackForce: 7

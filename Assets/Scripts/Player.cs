@@ -21,7 +21,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public bool isInvulnerable = false;
     public float invulnerabilityTime;
     public float invulnerabilityStart;
-    public bool startBlinking = false;
+    public float knockBackForce;
 
     private void Start()
     {
@@ -37,13 +37,8 @@ public class Player : MonoBehaviour, ILevelEntity
         if (Time.time - invulnerabilityStart >= invulnerabilityTime && isInvulnerable)
         {
             isInvulnerable = false;
-            startBlinking = true;
         }
 
-        if (startBlinking == true)
-        {
-            SpriteBlinkingEffect();
-        }
         var modpos = transform.position;
         modpos.y += JumpDistance / 2;
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(modpos, Vector3.down, JumpDistance))
@@ -99,14 +94,36 @@ public class Player : MonoBehaviour, ILevelEntity
         return _lives <= 0;
     }
 
-    public void SetInvulnerable()
+    public void SetInvulnerable(Vector3 direction)
     {
         isInvulnerable = true;
         invulnerabilityStart = Time.time;
+        KnockBack(direction);
+        MeshRenderer playerRenderer = GetComponentInChildren<MeshRenderer>();
+        IEnumerator coroutine = SpriteBlinkingEffect(playerRenderer, 0.1f, invulnerabilityTime);
+        StartCoroutine(coroutine);
     }
 
-    private void SpriteBlinkingEffect()
+    private void KnockBack(Vector3 direction)
     {
-        //Debug.Log(Time.time);
+        m_rigidbody.AddForce(direction * knockBackForce, ForceMode.Impulse);
+    }    
+
+    private static IEnumerator SpriteBlinkingEffect(MeshRenderer renderer, float interval, float duration)
+    {
+        float currentInterval = 0;
+
+        while (duration > 0)
+        {
+            currentInterval  += Time.deltaTime;
+            if(currentInterval >= interval)
+            {
+                renderer.enabled = !renderer.enabled;
+                currentInterval -= interval;
+            }
+            duration -= Time.deltaTime;
+            yield return null;
+        }
+        renderer.enabled = true;
     }
 }

@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     {
         origin = this.transform.position;
         mesh.GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
         if (goRight)
         {
             direction = Vector2.right;
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
         if(Time.time - startTime >= spawningTime)
         {
             mesh.GetComponent<Renderer>().enabled = true;
+            GetComponent<Collider>().enabled = true;
 
             if (goRight)
             {
@@ -44,6 +46,7 @@ public class Enemy : MonoBehaviour
                 else
                 {
                     mesh.GetComponent<Renderer>().enabled = false;
+                    GetComponent<Collider>().enabled = false;
                     startTime = Time.time;
                     spawningTime = respawnTime;
                     transform.position = origin;
@@ -58,6 +61,7 @@ public class Enemy : MonoBehaviour
                 else
                 {
                     mesh.GetComponent<Renderer>().enabled = false;
+                    GetComponent<Collider>().enabled = false;
                     startTime = Time.time;
                     spawningTime = respawnTime;
                     transform.position = origin;
@@ -75,7 +79,15 @@ public class Enemy : MonoBehaviour
             if (player.isInvulnerable == false)
             {
                 player.HitPlayer();
-                player.SetInvulnerable();
+                Vector3 temp = transform.position - other.gameObject.transform.position;
+                if(temp.x > 0)
+                {
+                    player.SetInvulnerable(Vector3.left);
+                }
+                else
+                {
+                    player.SetInvulnerable(Vector3.right);
+                }
             }
         }
     }
