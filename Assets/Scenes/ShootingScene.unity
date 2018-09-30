@@ -113,11 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &16006418 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1120049699595376, guid: 3e6f3014dc39b484fbe26f47ecbd7899,
-    type: 2}
-  m_PrefabInternal: {fileID: 1745280522}
 --- !u!1 &458157373
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +227,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4819282439277580, guid: 3b489da23cd1f4cb9942829073f41bfb, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b489da23cd1f4cb9942829073f41bfb, type: 2}
@@ -543,7 +538,7 @@ Prefab:
         type: 2}
       propertyPath: limitWall
       value: 
-      objectReference: {fileID: 16006418}
+      objectReference: {fileID: 0}
     - target: {fileID: 114823123006456264, guid: e543943889a464e0493d359982b1c836,
         type: 2}
       propertyPath: goRight
@@ -551,52 +546,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e543943889a464e0493d359982b1c836, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1745280522
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -6.6836414
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.1523118
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637055017317004, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1120049699595376, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
-      propertyPath: m_Name
-      value: ExitDoor2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3e6f3014dc39b484fbe26f47ecbd7899, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1775368017
 GameObject:
