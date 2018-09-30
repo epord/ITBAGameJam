@@ -18,4 +18,12 @@ public class Spikes : MonoBehaviour
             gameManager.Lose();
         }
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.name == "Player" && !collision.gameObject.GetComponent<Player>().isInvulnerable)
+        {
+            gameManager.Lose();
+        }
+    }
 }
