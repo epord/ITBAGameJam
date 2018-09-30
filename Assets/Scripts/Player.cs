@@ -29,6 +29,8 @@ public class Player : MonoBehaviour, ILevelEntity
     public float knockBackForce;
     public float decreasingJumpParameter=0.3f;
 
+    private SoundsManager soundsManager;
+
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour, ILevelEntity
         _spawnPosition = transform.position;
         _lives = TotalLives;
         mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
+        soundsManager = GameObject.Find("SoundsManager").GetComponent<SoundsManager>();
     }
 
     void Update()
@@ -54,6 +57,7 @@ public class Player : MonoBehaviour, ILevelEntity
            m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);
            isJumping = true;
            additionalForce = additionalJumpForce;
+            soundsManager.PlayJump();
         }
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
@@ -123,6 +127,7 @@ public class Player : MonoBehaviour, ILevelEntity
 
     public void HitPlayer()
     {
+        soundsManager.PlayHit();
         _lives--;
     }
 
