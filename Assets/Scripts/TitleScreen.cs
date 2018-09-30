@@ -127,7 +127,8 @@ public class TitleScreen : MonoBehaviour
                 "Move : Left - Right arrows \n" +
                 "Jump : Space \n" +
                 "Shoot : S \n" +
-                "Reset Level : R");
+                "Reset Level : R \n" +
+                      "Menu : Escape");
         }
     }
 }
