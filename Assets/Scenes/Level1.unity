@@ -985,7 +985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b586e4e2be396ac4a8c872791564b250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelTimer: 10
+  LevelTimer: 100
+  Scene: 0
 --- !u!1001 &501771429
 Prefab:
   m_ObjectHideFlags: 0
@@ -1590,6 +1591,21 @@ Prefab:
         type: 2}
       propertyPath: knockBackForce
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
+        type: 2}
+      propertyPath: decreasingJumpParameter
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
+        type: 2}
+      propertyPath: jumpForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
+        type: 2}
+      propertyPath: additionalJumpForce
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4182eb898b591461494eed3ee96b3c3f, type: 2}

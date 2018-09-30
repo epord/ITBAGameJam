@@ -27,6 +27,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float invulnerabilityTime;
     public float invulnerabilityStart;
     public float knockBackForce;
+    public float decreasingJumpParameter;
 
     private void Start()
     {
@@ -52,14 +53,14 @@ public class Player : MonoBehaviour, ILevelEntity
            Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
            m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);
            isJumping = true;
-            additionalForce = additionalJumpForce;
+           additionalForce = additionalJumpForce;
         }
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
             m_rigidbody.AddForce(Vector3.up * additionalForce, ForceMode.Impulse);
-            if (additionalForce >= 0.09f)
+            if (additionalForce >= decreasingJumpParameter)
             {
-                additionalForce -= 0.09f;
+                additionalForce -= decreasingJumpParameter;
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
