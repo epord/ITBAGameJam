@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public float InitialTimer;
     public float LevelTimer;
     public int Scene;
     private float _timer;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-        _timer = LevelTimer;
+        _timer = InitialTimer;
         _levelEntities = FindObjectsOfType<GameObject>().Select(go => go.GetComponent<ILevelEntity>()).Where(a => a != null);
         _player = FindObjectOfType<Player>();   
 	}
