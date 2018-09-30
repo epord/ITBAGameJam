@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private SoundsManager soundsManager;
     private bool _doorReached;
     private InGamePauseManager inGamePauseManager;
+    private bool won = false;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +37,10 @@ public class GameManager : MonoBehaviour
         _timer -= Time.deltaTime;
         if (_timer <= 0.001 || _player.IsDead())
         {
-            Lose();
+            if (!won)
+            {
+                Lose();
+            }
         }
         if (_doorReached)
         {
@@ -57,6 +61,7 @@ public class GameManager : MonoBehaviour
     
     private void Win()
     {
+        won = true;
         soundsManager.PlayWin();
         inGamePauseManager.PauseWin();
     }
