@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
             Reset();
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.LoadLevel("TitleScreen");
+        }
+
         _timer -= Time.deltaTime;
         if (_timer <= 0.001 || _player.IsDead())
         {
