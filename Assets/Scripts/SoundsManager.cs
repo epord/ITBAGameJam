@@ -68,7 +68,7 @@ public class SoundsManager : MonoBehaviour
 
     public void PlayLoss()
     {
-        _audioSource.volume = 1;
+        _audioSource.volume = 1f;
         _audioSource.PlayOneShot(loss);
     }
 }
