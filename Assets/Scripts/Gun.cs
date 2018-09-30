@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour {
     private LineRenderer shootingLine;
     private bool isMovingRight = true;
     private Vector3 raycastDirection;
+    private int _counter;
+    public int FramesLineIsOn;
 
 	// Use this for initialization
 	void Start () {
@@ -77,8 +79,13 @@ public class Gun : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S)) {
             shootingLine.enabled = true;
             shoot();
+            _counter = FramesLineIsOn;
         } else {
-            shootingLine.enabled = false;
+            _counter--;
+            if (_counter < 0)
+            {
+                shootingLine.enabled = false;
+            }
         }
     }
 }
