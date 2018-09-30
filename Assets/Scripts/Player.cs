@@ -19,6 +19,8 @@ public class Player : MonoBehaviour, ILevelEntity
     public bool isJumping = false;
     public float additionalJumpForce;
     private float additionalForce;
+    public float _characterHeight;
+    public float RaycastSteps = 10;
 
     //Invulnerability
     public bool isInvulnerable = false;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour, ILevelEntity
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        _characterHeight = GetComponent<BoxCollider>().size.y;
         currentSpeed = normalSpeed;
         _spawnPosition = transform.position;
         _lives = TotalLives;
@@ -64,12 +67,12 @@ public class Player : MonoBehaviour, ILevelEntity
             additionalForce = additionalJumpForce;
             isJumping = false;
         }
-        if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
+        if (Input.GetKey(KeyCode.LeftArrow) && !CheckCollisionByRaycasting(Vector3.left))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && !Physics.Raycast(transform.position, Vector3.right, JumpDistance))
+        else if (Input.GetKey(KeyCode.RightArrow) && !CheckCollisionByRaycasting(Vector3.right))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             currentDir = Vector2.right;
@@ -82,6 +85,21 @@ public class Player : MonoBehaviour, ILevelEntity
         {
             currentDir = Vector2.zero;
         }
+    }
+
+    bool CheckCollisionByRaycasting(Vector3 direction)
+    {
+        var step = _characterHeight / RaycastSteps;
+        var modpos = transform.position;
+        for (double i = 0; i < RaycastSteps; i ++)
+        {
+            modpos.y += step;
+            if (Physics.Raycast(modpos, direction, JumpDistance))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void FixedUpdate()
