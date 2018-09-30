@@ -11,19 +11,5 @@ public class Spikes : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.name == "Player" && !collision.gameObject.GetComponent<Player>().isInvulnerable)
-        {
-            gameManager.Lose();
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.name == "Player" && !collision.gameObject.GetComponent<Player>().isInvulnerable)
-        {
-            gameManager.Lose();
-        }
-    }
+    
 }

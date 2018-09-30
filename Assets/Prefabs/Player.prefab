@@ -193,3 +193,6 @@ MonoBehaviour:
   invulnerabilityStart: 0
   knockBackForce: 7
   decreasingJumpParameter: 0.3
+  Lethal:
+    serializedVersion: 2
+    m_Bits: 512

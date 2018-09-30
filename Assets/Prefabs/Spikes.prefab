@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4872379761554638}
   - component: {fileID: 33108228248044790}
   - component: {fileID: 23680335201638202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4650807009796150}
   - component: {fileID: 65394287878650870}
   - component: {fileID: 114109327270272370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4084008841949636}
   - component: {fileID: 33105087943726264}
   - component: {fileID: 23315683481090886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

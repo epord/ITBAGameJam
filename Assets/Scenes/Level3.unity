@@ -180,7 +180,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4650807009796150, guid: c31bc98b9b57ab344823987a3d659575, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.97
+      value: 6.16
       objectReference: {fileID: 0}
     - target: {fileID: 4650807009796150, guid: c31bc98b9b57ab344823987a3d659575, type: 2}
       propertyPath: m_LocalPosition.y
@@ -573,7 +573,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4955466534386484, guid: a6f363af107a14de78b4e7e0786a4363, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.12
+      value: 7.38
       objectReference: {fileID: 0}
     - target: {fileID: 4955466534386484, guid: a6f363af107a14de78b4e7e0786a4363, type: 2}
       propertyPath: m_LocalPosition.y
@@ -956,7 +956,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4440865432518462, guid: 060a8803b75e4894ba133f13340e80dc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.99
+      value: -9.02
       objectReference: {fileID: 0}
     - target: {fileID: 4440865432518462, guid: 060a8803b75e4894ba133f13340e80dc, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1351,6 +1351,9 @@ MonoBehaviour:
   invulnerabilityStart: 0
   knockBackForce: 7
   decreasingJumpParameter: 0.3
+  Lethal:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &806274761
 Prefab:
   m_ObjectHideFlags: 0
@@ -2746,7 +2749,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4650807009796150, guid: c31bc98b9b57ab344823987a3d659575, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.27
+      value: 5.46
       objectReference: {fileID: 0}
     - target: {fileID: 4650807009796150, guid: c31bc98b9b57ab344823987a3d659575, type: 2}
       propertyPath: m_LocalPosition.y

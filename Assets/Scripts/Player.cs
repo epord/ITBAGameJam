@@ -28,9 +28,11 @@ public class Player : MonoBehaviour, ILevelEntity
     public float invulnerabilityStart;
     public float knockBackForce;
     public float decreasingJumpParameter=0.3f;
+    public LayerMask Lethal;
 
     private SoundsManager soundsManager;
-
+    private GameManager _gameManager;
+    
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -40,17 +42,27 @@ public class Player : MonoBehaviour, ILevelEntity
         _lives = TotalLives;
         mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
         soundsManager = GameObject.Find("SoundsManager").GetComponent<SoundsManager>();
+        _gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
     }
 
     void Update()
     {
+
+        var modpos = transform.position;
+        modpos.y += JumpDistance / 2;
+        RaycastHit hit;
+        if (!isInvulnerable && Physics.Raycast(modpos, Vector3.down, out hit, JumpDistance, Lethal))
+        {
+            _gameManager.Lose();
+            return;
+        }
+        
         if (Time.time - invulnerabilityStart >= invulnerabilityTime && isInvulnerable)
         {
             isInvulnerable = false;
         }
 
-        var modpos = transform.position;
-        modpos.y += JumpDistance / 2;
+        
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(modpos, Vector3.down, JumpDistance))
         {  
            Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
