@@ -62,12 +62,14 @@ public class GameManager : MonoBehaviour
     private void Win()
     {
         won = true;
+        GameObject.Find("Player").GetComponent<Player>().enabled = false;
         soundsManager.PlayWin();
         inGamePauseManager.PauseWin();
     }
 
     public void Lose()
     {
+        GameObject.Find("Player").GetComponent<Player>().enabled = false;
         if (_timer <= 0)
         {
             soundsManager.PlayTimeOut();
@@ -97,8 +99,9 @@ public class GameManager : MonoBehaviour
 
     public void AddTime(float time)
     {
+
         _timer += time;
-        if (_timer <= -1)
+        if (_timer < 0 && time != -1)
         {
             _timer += LevelTimer;
         } else if (_timer >= LevelTimer)
