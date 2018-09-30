@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private Player _player;
     private SoundsManager soundsManager;
     private bool _doorReached;
+    private InGamePauseManager inGamePauseManager;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         _levelEntities = FindObjectsOfType<GameObject>().Select(go => go.GetComponent<ILevelEntity>()).Where(a => a != null);
         _player = FindObjectOfType<Player>();
         soundsManager = GameObject.Find("SoundsManager").GetComponent<SoundsManager>();
+        inGamePauseManager = GameObject.Find("InGamePauseManager").GetComponent<InGamePauseManager>();
         soundsManager.PlayLevelLong();
 	}
 	
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
 	}
 
-    private void Reset()
+    public void Reset()
     {
         Application.LoadLevel(Scene);
         //foreach(var go in _levelEntities)
@@ -53,15 +55,18 @@ public class GameManager : MonoBehaviour
         //_doorReached = false;
     }
     
-    private void Win(){
+    private void Win()
+    {
         soundsManager.PlayWin();
-        Application.LoadLevel(NextScene);
+        inGamePauseManager.win = true;
+        inGamePauseManager.Pause();
     }
 
     public void Lose()
     {
         soundsManager.PlayTimeOut();
-        Reset();
+        inGamePauseManager.win = false;
+        inGamePauseManager.Pause();
     }
     
     public float Timer()
