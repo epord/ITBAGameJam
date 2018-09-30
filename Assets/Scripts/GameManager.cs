@@ -39,12 +39,13 @@ public class GameManager : MonoBehaviour
 
     private void Reset()
     {
-        foreach(var go in _levelEntities)
-        {
-            go.Reset();
-        }
-        _timer = LevelTimer;
-        _doorReached = false;
+        Application.LoadLevel(1);
+        //foreach(var go in _levelEntities)
+        //{
+        //    go.Reset();
+        //}
+        //_timer = LevelTimer;
+        //_doorReached = false;
     }
     
     private void Win(){
