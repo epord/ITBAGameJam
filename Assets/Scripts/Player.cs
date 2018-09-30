@@ -82,10 +82,6 @@ public class Player : MonoBehaviour, ILevelEntity
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 180.0f);
             currentDir = Vector2.right;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            currentDir = Vector2.up;
-        }
         else
         {
             currentDir = Vector2.zero;
