@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void AddTime(float time)
     {
         _timer += time;
-        if (_timer < 0)
+        if (_timer <= -1)
         {
             _timer += LevelTimer;
         } else if (_timer >= LevelTimer)

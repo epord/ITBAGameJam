@@ -15,6 +15,6 @@ public class TimerDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        _textDisplay.SetText(string.Format("{0:0.00}", _gameManager.Timer()));
+        _textDisplay.SetText(string.Format("{0:0}", _gameManager.Timer()));
 	}
 }
