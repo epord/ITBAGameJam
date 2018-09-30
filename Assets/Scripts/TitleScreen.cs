@@ -5,6 +5,7 @@ using UnityEngine;
 public class TitleScreen : MonoBehaviour
 {
     public GUISkin skin;
+    public GUISkin titleSkin;
     private bool mainMenu = true;
     private bool controls = false;
     private bool play = false;
@@ -18,7 +19,7 @@ public class TitleScreen : MonoBehaviour
     private float boxHeight = 0.8f;
     private float buttonWidth = 0.3f;
     private float buttonHeight = 0.15f;
-    private float allButtonsPosX = 0.1f;
+    private float allButtonsPosX = 0.08f;
     private float firstButtonPosY = 0.15f;
     private float secondButtonPosY = 0.33f;
     private float thirdButtonPosY = 0.51f;
@@ -42,8 +43,12 @@ public class TitleScreen : MonoBehaviour
 
     private void OnGUI()
     {
+        //GUI.skin = titleSkin;
+        //GUI.Label(new Rect(Screen.width * 0.5f, Screen.height * 0.7f, Screen.width * 0.4f, Screen.height * 0.2f), "EXPLOIT");
         GUI.skin = skin;
-        GUI.Box(new Rect(Screen.width * boxCoordX, Screen.height * boxCoordY, Screen.width * boxWidth, Screen.height * boxHeight), "");
+       // GUI.Box(new Rect(Screen.width * boxCoordX, Screen.height * boxCoordY, Screen.width * boxWidth, Screen.height * boxHeight), "");
+        
+
         if (mainMenu)
         {
             if (GUI.Button(new Rect(Screen.width * allButtonsPosX, Screen.height * firstButtonPosY, Screen.width * buttonWidth, Screen.height * buttonHeight), new GUIContent("Play", "Play")))
@@ -68,7 +73,7 @@ public class TitleScreen : MonoBehaviour
             if (GUI.Button(new Rect(Screen.width * allButtonsPosX, Screen.height * fourthButtonPosY, Screen.width * buttonWidth, Screen.height * buttonHeight), new GUIContent("Exit", "Exit")))
             {
                 //soundsManager.PlayButtonClick();
-                //Quit the Game
+                Application.Quit();
             }
         }
         else if (levels)
