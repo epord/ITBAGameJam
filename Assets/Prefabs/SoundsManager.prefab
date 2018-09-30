@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 82460796618926428}
   jump: {fileID: 8300000, guid: d211707e372b23d4c9f543580ef75d5f, type: 3}
-  shoot: {fileID: 8300000, guid: 171324f50a785fd45b56403127c6916a, type: 3}
+  shoot: {fileID: 8300000, guid: 6c29e0040f5cbe348ac5e4caf6132eef, type: 3}
   level: {fileID: 8300000, guid: dccee359516bd93489199bbc5f7c0ff3, type: 3}
   levelLong: {fileID: 8300000, guid: cf275ce765fcd2a4e812027199673fa7, type: 3}
   win: {fileID: 8300000, guid: c8c40d8cf5cf58c4198f588b62049381, type: 3}
