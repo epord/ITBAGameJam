@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour {
     private Vector3 raycastDirection;
     private int _counter;
     public int FramesLineIsOn;
+    private SoundsManager soundsManager;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class Gun : MonoBehaviour {
         shootingLine.SetPositions(initLaserPositions);
         shootingLine.SetWidth(0.05f, 0.05f);
         shootingLine.SetColors(shootingColor, shootingColor);
-
+        soundsManager = GameObject.Find("SoundsManager").GetComponent<SoundsManager>();
         raycastDirection = new Vector3(0.0f, 0.0f, 0.0f);
 	}
 	
@@ -51,7 +52,7 @@ public class Gun : MonoBehaviour {
     private void shoot()
     {
         shootingLine.SetPosition(0, gunMesh.transform.position);
-     
+        soundsManager.PlayShoot();
         int playerLayerMask = 1 << 8;
         RaycastHit hit;
         if (Physics.Raycast(gunMesh.transform.position, raycastDirection, out hit, Mathf.Infinity, ~playerLayerMask))
