@@ -62,12 +62,14 @@ public class GameManager : MonoBehaviour
     private void Win()
     {
         won = true;
+        GameObject.Find("Player").GetComponent<Player>().enabled = false;
         soundsManager.PlayWin();
         inGamePauseManager.PauseWin();
     }
 
     public void Lose()
     {
+        GameObject.Find("Player").GetComponent<Player>().enabled = false;
         if (_timer <= 0)
         {
             soundsManager.PlayTimeOut();
