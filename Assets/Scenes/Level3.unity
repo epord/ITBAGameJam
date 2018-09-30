@@ -443,7 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b586e4e2be396ac4a8c872791564b250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelTimer: 11
+  InitialTimer: 10
+  LevelTimer: 10
   Scene: 2
   NextScene: 0
 --- !u!1001 &501771429
