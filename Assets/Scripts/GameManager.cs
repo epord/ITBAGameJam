@@ -12,14 +12,16 @@ public class GameManager : MonoBehaviour
     private float _timer;
     private IEnumerable<ILevelEntity> _levelEntities;
     private Player _player;
-
+    private SoundsManager soundsManager;
     private bool _doorReached;
 
 	// Use this for initialization
 	void Start () {
         _timer = InitialTimer;
         _levelEntities = FindObjectsOfType<GameObject>().Select(go => go.GetComponent<ILevelEntity>()).Where(a => a != null);
-        _player = FindObjectOfType<Player>();   
+        _player = FindObjectOfType<Player>();
+        soundsManager = GameObject.Find("SoundsManager").GetComponent<SoundsManager>();
+        soundsManager.PlayLevelLong();
 	}
 	
 	// Update is called once per frame
@@ -52,11 +54,13 @@ public class GameManager : MonoBehaviour
     }
     
     private void Win(){
+        soundsManager.PlayWin();
         Application.LoadLevel(NextScene);
     }
 
     public void Lose()
     {
+        soundsManager.PlayTimeOut();
         Reset();
     }
     
