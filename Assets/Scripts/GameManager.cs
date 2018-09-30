@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public float LevelTimer;
+    public int Scene;
     private float _timer;
     private IEnumerable<ILevelEntity> _levelEntities;
     private Player _player;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void Reset()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel(Scene);
         //foreach(var go in _levelEntities)
         //{
         //    go.Reset();
