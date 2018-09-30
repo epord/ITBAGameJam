@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float currentSpeed = 5;
     public GameObject mesh;
     public int TotalLives;
-    private int _lives;
+    public int _lives;
     private Rigidbody m_rigidbody;
     private Vector2 currentDir;
 
@@ -39,16 +39,14 @@ public class Player : MonoBehaviour, ILevelEntity
             isInvulnerable = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Physics.Raycast(transform.position, Vector3.down, JumpDistance))
-            {
-                Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
-                m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);
-                //currentSpeed = inJumpSpeed * 2f;
-            }
+        var modpos = transform.position;
+        modpos.y += JumpDistance / 2;
+        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(modpos, Vector3.down, JumpDistance))
+        {  
+           Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
+           m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);  
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
+        if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, Vector3.left, JumpDistance))
         {
             mesh.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 0.0f);
             currentDir = Vector2.left;
@@ -108,7 +106,6 @@ public class Player : MonoBehaviour, ILevelEntity
 
     private void KnockBack(Vector3 direction)
     {
-        Debug.Log(direction * knockBackForce);
         m_rigidbody.AddForce(direction * knockBackForce, ForceMode.Impulse);
     }    
 
