@@ -443,8 +443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b586e4e2be396ac4a8c872791564b250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitialTimer: 11
   LevelTimer: 11
-  Scene: 2
+  Scene: 0
 --- !u!1001 &501771429
 Prefab:
   m_ObjectHideFlags: 0
@@ -1112,6 +1113,11 @@ Prefab:
     - target: {fileID: 4144623855265466, guid: 547a1d1dbcf844e16ab238ca05c82d3e, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275067063665192, guid: 547a1d1dbcf844e16ab238ca05c82d3e,
+        type: 2}
+      propertyPath: FramesLineIsOn
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547a1d1dbcf844e16ab238ca05c82d3e, type: 2}
