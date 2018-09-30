@@ -797,6 +797,11 @@ Prefab:
       propertyPath: m_Center.z
       value: 1.2722657
       objectReference: {fileID: 0}
+    - target: {fileID: 65092590496157192, guid: 4182eb898b591461494eed3ee96b3c3f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4182eb898b591461494eed3ee96b3c3f, type: 2}
   m_IsPrefabAsset: 0
