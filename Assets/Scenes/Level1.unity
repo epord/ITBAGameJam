@@ -573,7 +573,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.2
+  orthographic size: 11.304757
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -936,6 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelTimer: 10
+  Scene: 0
 --- !u!1001 &501771429
 Prefab:
   m_ObjectHideFlags: 0
@@ -1369,8 +1370,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6882a6979b6f58e4cb30d54370bab6b9, type: 2}
+  m_sharedMaterial: {fileID: 21228426585672454, guid: 6882a6979b6f58e4cb30d54370bab6b9,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1517,24 +1519,6 @@ Prefab:
     - target: {fileID: 4244351076901876, guid: 4182eb898b591461494eed3ee96b3c3f, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
-        type: 2}
-      propertyPath: JumpDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114093401859858958, guid: 4182eb898b591461494eed3ee96b3c3f,
-        type: 2}
-      propertyPath: invulnerabilityTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1239566461994096, guid: 4182eb898b591461494eed3ee96b3c3f, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225445965140006, guid: 4182eb898b591461494eed3ee96b3c3f, type: 2}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4182eb898b591461494eed3ee96b3c3f, type: 2}
@@ -2941,8 +2925,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6882a6979b6f58e4cb30d54370bab6b9, type: 2}
+  m_sharedMaterial: {fileID: 21228426585672454, guid: 6882a6979b6f58e4cb30d54370bab6b9,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
