@@ -7,7 +7,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float JumpDistance = 0.1f;
     
     private Vector3 _spawnPosition;
-    public float jumpForce = 8.0f;
+    public float jumpForce = 4.0f;
     public float normalSpeed = 5;
     public float inJumpSpeed = 4;
     public float currentSpeed = 5;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour, ILevelEntity
     private Rigidbody m_rigidbody;
     private Vector2 currentDir;
     public bool isJumping = false;
-    public float additionalJumpForce;
+    public float additionalJumpForce=2;
     private float additionalForce;
     public float _characterHeight;
     public float RaycastSteps = 10;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float invulnerabilityTime;
     public float invulnerabilityStart;
     public float knockBackForce;
-    public float decreasingJumpParameter;
+    public float decreasingJumpParameter=0.3f;
 
     private void Start()
     {
