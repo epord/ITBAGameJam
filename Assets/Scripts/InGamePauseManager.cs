@@ -29,7 +29,7 @@ public class InGamePauseManager : MonoBehaviour
 
     public void PauseWin()
     {
-        Invoke("PauseNext", 3f);
+        Invoke("PauseNext", 1.5f);
     }
 
     public void PauseLoss()
