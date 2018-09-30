@@ -95,9 +95,14 @@ public class Player : MonoBehaviour, ILevelEntity
         for (double i = 0; i < RaycastSteps; i ++)
         {
             modpos.y += step;
-            if (Physics.Raycast(modpos, direction, JumpDistance))
+            RaycastHit hit;
+            if (Physics.Raycast(modpos, direction, out hit, JumpDistance))
             {
-                return true;
+                if (hit.collider.tag == "MapElement")
+                {
+                    return true;
+                }
+                
             }
         }
         return false;
