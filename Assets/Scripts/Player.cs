@@ -7,7 +7,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float JumpDistance = 0.1f;
     
     private Vector3 _spawnPosition;
-    public float jumpForce = 15.0f;
+    public float jumpForce = 4.0f;
     public float normalSpeed = 5;
     public float inJumpSpeed = 4;
     public float currentSpeed = 5;
@@ -16,6 +16,9 @@ public class Player : MonoBehaviour, ILevelEntity
     public int _lives;
     private Rigidbody m_rigidbody;
     private Vector2 currentDir;
+    public bool isJumping = false;
+    public float additionalJumpForce=2;
+    private float additionalForce;
     public float _characterHeight;
     public float RaycastSteps = 10;
 
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour, ILevelEntity
     public float invulnerabilityTime;
     public float invulnerabilityStart;
     public float knockBackForce;
+    public float decreasingJumpParameter=0.3f;
 
     private void Start()
     {
@@ -47,7 +51,22 @@ public class Player : MonoBehaviour, ILevelEntity
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(modpos, Vector3.down, JumpDistance))
         {  
            Vector3 dir = new Vector3(currentDir.x, currentDir.y, 0);
-           m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);  
+           m_rigidbody.AddForce((Vector3.up * jumpForce) + (dir * inJumpSpeed), ForceMode.Impulse);
+           isJumping = true;
+           additionalForce = additionalJumpForce;
+        }
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            m_rigidbody.AddForce(Vector3.up * additionalForce, ForceMode.Impulse);
+            if (additionalForce >= decreasingJumpParameter)
+            {
+                additionalForce -= decreasingJumpParameter;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            additionalForce = additionalJumpForce;
+            isJumping = false;
         }
         if (Input.GetKey(KeyCode.LeftArrow) && !CheckCollisionByRaycasting(Vector3.left))
         {
@@ -124,7 +143,7 @@ public class Player : MonoBehaviour, ILevelEntity
 
     private void KnockBack(Vector3 direction)
     {
-        m_rigidbody.AddForce(direction * knockBackForce, ForceMode.Impulse);
+        m_rigidbody.velocity = direction * knockBackForce;
     }    
 
     private static IEnumerator SpriteBlinkingEffect(MeshRenderer renderer, float interval, float duration)

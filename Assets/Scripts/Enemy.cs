@@ -82,11 +82,11 @@ public class Enemy : MonoBehaviour
                 Vector3 temp = transform.position - other.gameObject.transform.position;
                 if(temp.x > 0)
                 {
-                    player.SetInvulnerable(Vector3.left);
+                    player.SetInvulnerable(Vector3.left+Vector3.up*1.5f);
                 }
                 else
                 {
-                    player.SetInvulnerable(Vector3.right);
+                    player.SetInvulnerable(Vector3.right+Vector3.up*1.5f);
                 }
             }
         }
