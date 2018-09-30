@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,11 +10,13 @@ public class ExitDoor : MonoBehaviour
     private Renderer[] lights;
     public Material destroyedTarget;
     public Material remainingTarget;
+    private int targetAmount;
 
     void Start ()
     {
         _gameManager = FindObjectOfType<GameManager>();
         lights = GetComponentsInChildren<Renderer>();
+        targetAmount = GameObject.FindGameObjectsWithTag("ShootingTarget").Length;
     }
 	
 	void Update ()
@@ -23,7 +26,9 @@ public class ExitDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _gameManager.EnterExitDoor();
+        int unDestroyedTargets = GameObject.FindGameObjectsWithTag("ShootingTarget").Length;
+        if(unDestroyedTargets == 0) _gameManager.EnterExitDoor();
+      
     }
 
     private void PrintRemainingTargetsNumber()
@@ -33,7 +38,7 @@ public class ExitDoor : MonoBehaviour
         {
             lights[i].GetComponent<Renderer>().material = remainingTarget;
         }
-        for (int i = 3; i > unDestroyedTargets; i--)
+        for (int i = targetAmount; i > unDestroyedTargets; i--)
         {
             lights[i].GetComponent<Renderer>().material = destroyedTarget;
         }

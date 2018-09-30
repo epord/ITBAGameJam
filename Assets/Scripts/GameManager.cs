@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public float LevelTimer;
     public int Scene;
+    public int NextScene;
     private float _timer;
     private IEnumerable<ILevelEntity> _levelEntities;
     private Player _player;
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     }
     
     private void Win(){
-        Reset();
+        Application.LoadLevel(NextScene);
     }
 
     public void Lose()
