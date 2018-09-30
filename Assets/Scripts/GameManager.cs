@@ -67,4 +67,16 @@ public class GameManager : MonoBehaviour
     {
         _doorReached = true;
     }
+
+    public void AddTime(float time)
+    {
+        _timer += time;
+        if (_timer < 0)
+        {
+            _timer += LevelTimer;
+        } else if (_timer >= LevelTimer)
+        {
+            _timer -= LevelTimer;
+        }
+    }
 }
