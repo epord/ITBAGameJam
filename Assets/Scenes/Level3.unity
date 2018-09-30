@@ -446,7 +446,7 @@ MonoBehaviour:
   InitialTimer: 10
   LevelTimer: 10
   Scene: 2
-  NextScene: 0
+  NextScene: 3
 --- !u!1001 &501771429
 Prefab:
   m_ObjectHideFlags: 0

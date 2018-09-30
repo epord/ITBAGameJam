@@ -992,8 +992,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialTimer: 10
   LevelTimer: 10
-  Scene: 3
-  NextScene: 4
+  Scene: 4
+  NextScene: 5
 --- !u!4 &441803136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4767925812117092, guid: e543943889a464e0493d359982b1c836,

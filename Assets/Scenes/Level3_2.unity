@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialTimer: 5
   LevelTimer: 5
-  Scene: 4
+  Scene: 5
   NextScene: 0
 --- !u!1001 &501771429
 Prefab:
